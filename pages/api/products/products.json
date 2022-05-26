@@ -1,0 +1,227 @@
+[
+  {
+      "name": "Banán 1 ks",
+      "id": 1,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1349777/1349777-1553069273.jpg",
+      "price": {
+          "full": 6.35,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Hrozny bílé bezsemenné, balení",
+      "id": 2,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1314777/1314777-1538028408.jpg",
+      "price": {
+          "full": 59.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Banán žlutý Chiquita 1 ks",
+      "id": 3,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1298809/1298809-1480432397.jpg",
+      "price": {
+          "full": 9.23,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Jablko červené malé 1 ks",
+      "id": 4,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1295673/1295673-1542965761.jpg",
+      "price": {
+          "full": 5.04,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Pomeranč 1 ks",
+      "id": 5,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1288593/1288593-1482834161.jpg",
+      "price": {
+          "full": 13.83,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Mandarinka (odr. Satsuma)1ks",
+      "id": 6,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1350161/1350161-1572859197.jpg",
+      "price": {
+          "full": 13.63,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Hrušky zelené, vanička",
+      "id": 7,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1360903/1360903-1567584104.jpg",
+      "price": {
+          "full": 39.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Nowaco Borůvky",
+      "id": 8,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1312501/1312501-1542616138.jpg",
+      "price": {
+          "full": 54.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Rohlik.cz Rozinky",
+      "id": 9,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1374757/1374757-1587311316.jpg",
+      "price": {
+          "full": 34.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Hrozny tmavé ( odr. Black magic)volně, střapec",
+      "id": 10,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1356399/1356399-1573481015.jpg",
+      "price": {
+          "full": 164.89,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Borůvky, vanička",
+      "id": 11,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1317247/1317247-1476645563.jpg",
+      "price": {
+          "full": 39.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Rohlik.cz Brusnice",
+      "id": 12,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1374771/1374771-1587311467.jpg",
+      "price": {
+          "full": 52.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Láznička Ovocný knedlík meruňkový, 3 ks",
+      "id": 13,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1304143/1304143-1456739419.jpg",
+      "price": {
+          "full": 64.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Ollies Čokomalinový dortík",
+      "id": 14,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1362091/1362091-1584530036.jpg",
+      "price": {
+          "full": 79.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Meruňka 1 ks",
+      "id": 15,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1294515/1294515-1493976085.jpg",
+      "price": {
+          "full": 5.92,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Jablko odr. Idared",
+      "id": 16,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1374039/1374039-1622995490811.jpg",
+      "price": {
+          "full": 6.5,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Jablko Royal Gala 1 ks",
+      "id": 17,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1296121/1296121-1514884049.jpg",
+      "price": {
+          "full": 8.08,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Broskev plochá Paraguayos 1 ks",
+      "id": 18,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1316593/1316593-1502711930.jpg",
+      "price": {
+          "full": 13.74,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Limeta 1 ks",
+      "id": 19,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/8791/c0/1287619-1429706051.jpg",
+      "price": {
+          "full": 9.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Hami Příkrm rizoto s krůtím stehýnkem, cuketou a hráškem",
+      "id": 20,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1299465/1299465-1493114722.jpg",
+      "price": {
+          "full": 44.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Meloun vodní červený 1 ks",
+      "id": 21,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1305131/1305131-1501778516.jpg",
+      "price": {
+          "full": 136.95,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Banány, balení",
+      "id": 22,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1375865/1375865-1585776109.jpg",
+      "price": {
+          "full": 43.86,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Jablko Golden Delicious výběrové 1 ks",
+      "id": 23,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1298587/1298587-1444399733.jpg",
+      "price": {
+          "full": 8.41,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Hami Příkrm brambory s hovězím a hráškem",
+      "id": 24,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1339153/1339153-1541419864.jpg",
+      "price": {
+          "full": 44.9,
+          "currency": "Kč"
+      }
+  },
+  {
+      "name": "Meloun vodní červený (s nízkým obsahem semínek) 1 ks",
+      "id": 25,
+      "image": "https://cdn.rohlik.cz/images/grocery/products/1294953/1294953-1497431504.jpg",
+      "price": {
+          "full": 224.25,
+          "currency": "Kč"
+      }
+  }
+]
