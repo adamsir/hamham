@@ -9,8 +9,13 @@ import type { Product } from './api/products'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
+const PrettyPrintJson = ({data}) => {
+  return (<div><pre>{ JSON.stringify(data, null, 2) }</pre></div>);
+}
+
 const Home: NextPage = () => {
   const { data, error } = useSWR('/api/products', fetcher)
+  /* const { data, error } = useSWR('/api/catalog', fetcher) */
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -20,6 +25,13 @@ const Home: NextPage = () => {
       <PageHeader />
       <PageHero />
 
+      {/* <div>
+        (data)
+        <div>
+          <PrettyPrintJson data={data} />
+        </div>
+      </div> */}
+
       <div className="flex min-h-screen flex-col items-center justify-center py-2">
 
         <Head>
@@ -28,22 +40,17 @@ const Home: NextPage = () => {
         </Head>
 
         <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-          <h1 className="text-6xl font-bold">
-            Welcome to{' '}
-            <a className="text-blue-600" href="https://nextjs.org">
-              Next.js!
-            </a>
+          <h1 className="text-xl font-bold">
+            Nejoblíbenější hamham
           </h1>
 
-          <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
-              <div className="flex flex-wrap -m-4">
-                {data.map((product: Product) => (
-                  <ProductCard {...product} />
-                ))}
-              </div>
+          <div className="container px-5 py-24 mx-auto">
+            <div className="flex flex-wrap -m-4">
+              {data.map((product: Product) => (
+                <ProductCard {...product} />
+              ))}
             </div>
-          </section>
+          </div>
         </main>
 
         <footer className="flex h-24 w-full items-center justify-center border-t">
