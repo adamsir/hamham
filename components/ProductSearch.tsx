@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Product } from '../pages/api/products';
-import ProductCard from './ProductCard';
+import type { OrderItem } from '../pages/api/products';
 import ProductCardInline from './ProductCardInline';
 
-export default ({ searchContext }) => {
+const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
   const [searchData, setSearchData] = useState(searchContext)
   const [query, setQuery] = useState('')
-  const [suggestions, setSuggestions] = useState([])
+  const [suggestions, setSuggestions] = useState<any[]>([])
   const [showSuggestions, setShowSuggestions] = useState(false)
 
   useEffect(() => {
     setSearchData(searchContext)
-  })
+  }, [searchContext])
 
   console.log(searchData)
 
-  const onChange = (event) => {
+  const onChange = (event: { target: { value: string; }; }) => {
     const value = event.target.value.toLowerCase()
     setQuery(value)
 
@@ -29,7 +28,7 @@ export default ({ searchContext }) => {
     }
   }
 
-  const onKeyDown = (event) => {
+  const onKeyDown = (event: { keyCode: number; }) => {
     if (event.keyCode === 27) {
       setShowSuggestions(false)
       setQuery('')
@@ -37,7 +36,7 @@ export default ({ searchContext }) => {
     }
   }
 
-  const onFocus = (event) => {
+  const onFocus = () => {
     if (suggestions.length > 0) {
       setShowSuggestions(true)
     }
@@ -47,9 +46,9 @@ export default ({ searchContext }) => {
     return (
       <div className="absolute top-12 w-full z-10">
         <div className="flex flex-col">
-          {suggestions.map((suggestion: Product) => (
-            <div className="w-96 z-50">
-              <ProductCardInline {...suggestion} />
+          {suggestions.map((suggestion: OrderItem) => (
+            <div key={suggestion.id} className="w-96 z-50">
+              <ProductCardInline  {...suggestion} />
             </div>
           ))}
         </div>
@@ -65,7 +64,7 @@ export default ({ searchContext }) => {
     <>
       <div className="relative z-50">
         <div className="w-96">
-        <input placeholder="Banány, hrozny, jablko" type="text" name="search" id="" 
+        <input placeholder="Banány, hrozny, jablko" type="text" name="search" id="mainSearch" 
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown} 
@@ -78,3 +77,5 @@ export default ({ searchContext }) => {
     </>
   )
 }
+
+export default ProductSearch

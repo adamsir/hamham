@@ -1,11 +1,10 @@
-//https://www.rohlik.cz/cdn-cgi/image/f=auto,w=768,q=75/https:/cdn.rohlik.cz/images/onboarding/background-carrot-mobile.jpg?v4
 import Image from 'next/image'
 
 const imageLoader = ({ src, width, quality }: any) => {
   return `https://www.rohlik.cz/cdn-cgi/image/f=auto,w=${width},q=${quality || 75}/${src}`
 }
 
-export default () => (
+const PageHero = () => (
   <section className="text-gray-600 body-font">
     <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
       <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -51,5 +50,6 @@ export default () => (
       </div>
     </div>
   </section>
-
 )
+
+export default PageHero

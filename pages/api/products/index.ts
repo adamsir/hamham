@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import productsData from './products.json'
 
-export type Product = {
+type Product = {
   name:  string;
   id:    number;
   image: string;
@@ -10,10 +10,14 @@ export type Product = {
   quantity?: number;
 }
 
-export interface Price {
+interface Price {
   full:     number;
   currency: string;
 }
+
+type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
+
+export type OrderItem = WithRequired<Product, 'quantity'>
 
 export default function handler(
   req: NextApiRequest,

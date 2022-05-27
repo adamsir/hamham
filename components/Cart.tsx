@@ -1,11 +1,9 @@
-import { useEffect } from 'react'
-import type { Product } from '../pages/api/products'
+import type { OrderItem } from '../pages/api/products'
 import useStore from '../stores/order'
-import ProductAction from './ProductAction'
 import ProductCardInline from './ProductCardInline'
 
-export default () => {
-  const {items, setItems, clearItems, totalPrice } = useStore()
+const Cart = () => {
+  const {items, clearItems, totalPrice } = useStore()
 
 
   if (!useStore.getState().items.length) {
@@ -16,8 +14,10 @@ export default () => {
 
   return (
     <div className="relative">
-      {items.map((product: Product) => (
-        <ProductCardInline {...product} />
+      {items.map((product: OrderItem) => (
+        <div key={product.id}>
+          <ProductCardInline {...product} />
+        </div>
       ))}
       <button className="py-4" onClick={clearItems}>Vyprázdnit košík</button>
       <div className="sticky -bottom-4 left-0 py-8 bg-white">
@@ -29,3 +29,5 @@ export default () => {
     </div>
   )
 }
+
+export default Cart

@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import type { Product } from "../pages/api/products";
+import type { OrderItem } from "../pages/api/products";
 import ProductAction from './ProductAction';
 
-export default (item: Product) => (
+const ProductCardInline = (item: OrderItem) => (
   <div className="flex flex-col border-2 p-4 bg-white">
     <div className="flex flex-row">
       <a className="block relative w-16 h-16 rounded overflow-hidden">
@@ -27,3 +27,5 @@ export default (item: Product) => (
     </div>
   </div>
 )
+
+export default ProductCardInline

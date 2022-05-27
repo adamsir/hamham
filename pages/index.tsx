@@ -1,19 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import useSWR from 'swr'
 import PageHeader from '../components/PageHeader'
 import PageHero from '../components/PageHero'
 import ProductCard from '../components/ProductCard'
-import type { Product } from './api/products'
-import Cart from '../components/Cart'
+import type { OrderItem } from './api/products'
 import ProductSearch from '../components/ProductSearch'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 const Home: NextPage = () => {
   const { data, error } = useSWR('/api/products', fetcher)
-  /* const { data, error } = useSWR('/api/catalog', fetcher) */
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -25,13 +22,6 @@ const Home: NextPage = () => {
         <ProductSearch searchContext={data} />
       </div>
       <PageHero />
-
-      {/* <div>
-        (data)
-        <div>
-          <PrettyPrintJson data={data} />
-        </div>
-      </div> */}
 
       <div className="flex min-h-screen flex-col items-center justify-center py-2">
 
@@ -47,8 +37,8 @@ const Home: NextPage = () => {
 
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
-              {data.map((product: Product) => (
-                <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+              {data.map((product: OrderItem) => (
+                <div key={product.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
                   <ProductCard {...product} />
                 </div>
               ))}

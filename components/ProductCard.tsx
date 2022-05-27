@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import type { Product } from "../pages/api/products";
+import type { OrderItem } from "../pages/api/products";
 import ProductAction from './ProductAction';
 
-export default (item: Product) => (
+const ProductCard = (item: OrderItem) => (
   <div className="border-2 p-4">
     <a className="block relative h-48 rounded overflow-hidden">
       <Image
@@ -21,3 +21,5 @@ export default (item: Product) => (
     </div>
   </div>
 )
+
+export default ProductCard

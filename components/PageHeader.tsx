@@ -1,8 +1,9 @@
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import useStore from "../stores/order"
 import Cart from "./Cart"
 
-export default () => {
+const ProductAction = () => {
   const { totalPrice } = useStore()
   const [showCart, setShowCart] = useState(false)
 
@@ -32,7 +33,7 @@ export default () => {
         </nav>
         <div className="relative bg-white">
           <button onClick={toggleCartView} className="inline-flex items-center bg-gray-100 border-0 py-4 px-4 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 z-30">
-            <img src="icon-bag.svg" className="w-4 h-4" />
+            <Image src="icon-bag.svg" className="w-4 h-4" alt="Cart icon" />
             <span className="ml-4">{totalPrice} Kč</span>
           </button>
           {showCart && <CartView />}
@@ -41,3 +42,5 @@ export default () => {
     </header>
   )
 }
+
+export default ProductAction

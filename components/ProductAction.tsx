@@ -1,7 +1,7 @@
-import type { Product } from "../pages/api/products";
+import type { OrderItem } from "../pages/api/products";
 import useStore from '../stores/order';
 
-export default (product: Product) => {
+const ProductAction = (product: OrderItem) => {
   const { items, addItem, updateItemQuantity } = useStore()
 
   /* @todo refactor */
@@ -30,3 +30,5 @@ export default (product: Product) => {
     </>
   )
 }
+
+export default ProductAction

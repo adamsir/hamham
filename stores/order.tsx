@@ -1,17 +1,17 @@
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Product } from '../pages/api/products'
+import type { OrderItem } from '../pages/api/products'
 
 type OrderStore = {
-  items: Product[];
+  items: OrderItem[];
   totalPrice: number;
-  setItems: (items: Product[]) => void;
-  addItem: (item: Product, quantity: number) => void;
+  setItems: (items: OrderItem[]) => void;
+  addItem: (item: OrderItem, quantity: number) => void;
   updateItemQuantity: (id: number, quantity: number) => void;
   clearItems: () => void;
 }
 
-const addItem = (items: Product[], item: Product, quantity: number): Product[] => {
+const addItem = (items: OrderItem[], item: OrderItem, quantity: number): OrderItem[] => {
   let orderItems = items.filter((orderItem) => orderItem.id !== item.id)
 
   return [
@@ -23,7 +23,7 @@ const addItem = (items: Product[], item: Product, quantity: number): Product[] =
   ]
 }
 
-const updateItemQuantity = (items: Product[], id: number, quantity: number): Product[] => {
+const updateItemQuantity = (items: OrderItem[], id: number, quantity: number): OrderItem[] => {
   let orderItems = items.map((product) => {
     if (product.id === id) {
       product.quantity = quantity
@@ -38,7 +38,7 @@ const updateItemQuantity = (items: Product[], id: number, quantity: number): Pro
   return orderItems
 }
 
-const updateTotalPrice = (items: Product[], totalPrice: number): number => {
+const updateTotalPrice = (items: OrderItem[], totalPrice: number): number => {
   let sum = items.reduce((acc, product) => {
     return acc + (product.price.full * product?.quantity)
   }, 0)
@@ -49,12 +49,12 @@ const updateTotalPrice = (items: Product[], totalPrice: number): number => {
 const useStore = create<OrderStore>()(persist((set, get): OrderStore => ({
   items: [],
   totalPrice: 0,
-  setItems: (items: Product[]) =>
+  setItems: (items: OrderItem[]) =>
     set((state) => ({
       ...state,
       items,
     })),
-  addItem: (item: Product, quantity: number) =>
+  addItem: (item: OrderItem, quantity: number) =>
     set((state) => ({
       ...state,
       items: addItem(state.items, item, quantity),
