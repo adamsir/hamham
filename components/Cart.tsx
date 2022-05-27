@@ -4,7 +4,7 @@ import useStore from '../stores/order'
 import ProductAction from './ProductAction'
 
 export default () => {
-  const {items, setItems, clearItems } = useStore()
+  const {items, setItems, clearItems, totalPrice } = useStore()
 
 
   if (!useStore.getState().items.length) {
@@ -24,6 +24,7 @@ export default () => {
       ))}
       <div className='mt-4'>
         <button onClick={() => {clearItems()}}>Vyprázdnit košík</button>
+        total price {totalPrice}
       </div>
     </>
   )

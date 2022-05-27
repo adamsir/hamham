@@ -38,7 +38,13 @@ const updateItemQuantity = (items: Product[], id: number, quantity: number): Pro
   return orderItems
 }
 
-const clearItems = () => []
+const updateTotalPrice = (items: Product[], totalPrice: number): number => {
+  let sum = items.reduce((acc, product) => {
+    return acc + (product.price.full * product?.quantity)
+  }, 0)
+
+  return sum
+}
 
 const useStore = create<OrderStore>()(persist((set, get): OrderStore => ({
   items: [],
@@ -51,17 +57,20 @@ const useStore = create<OrderStore>()(persist((set, get): OrderStore => ({
   addItem: (item: Product, quantity: number) =>
     set((state) => ({
       ...state,
-      items: addItem(state.items, item, quantity)
+      items: addItem(state.items, item, quantity),
+      totalPrice: state.totalPrice + item.price.full
     })),
   updateItemQuantity: (id: number, quantity: number) =>
     set((state) => ({
       ...state,
-      items: updateItemQuantity(state.items, id, quantity)
+      items: updateItemQuantity(state.items, id, quantity),
+      totalPrice: updateTotalPrice(state.items, state.totalPrice)
     })),
   clearItems: () =>
     set((state) => ({
       ...state,
-      items: clearItems()
+      items: [],
+      totalPrice: 0
     }))
 }), {
   name: 'hamham-store',
