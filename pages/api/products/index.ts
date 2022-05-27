@@ -7,6 +7,7 @@ export type Product = {
   id:    number;
   image: string;
   price: Price;
+  quantity?: number;
 }
 
 export interface Price {

@@ -6,12 +6,9 @@ import PageHeader from '../components/PageHeader'
 import PageHero from '../components/PageHero'
 import ProductCard from '../components/ProductCard'
 import type { Product } from './api/products'
+import Cart from '../components/Cart'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
-
-const PrettyPrintJson = ({data}) => {
-  return (<div><pre>{ JSON.stringify(data, null, 2) }</pre></div>);
-}
 
 const Home: NextPage = () => {
   const { data, error } = useSWR('/api/products', fetcher)
@@ -22,6 +19,9 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <div className='fixed top-0 right-0 border-2 z-20 bg-slate-100'>
+        <Cart />
+      </div>
       <PageHeader />
       <PageHero />
 
