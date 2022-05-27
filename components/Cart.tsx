@@ -10,7 +10,7 @@ export default () => {
 
   if (!useStore.getState().items.length) {
     return (
-      <div>Cart is empty</div>
+      <div>Jsem tak hladový.</div>
     )
   }
 

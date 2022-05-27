@@ -7,7 +7,7 @@ export default () => {
   const [showCart, setShowCart] = useState(false)
 
   const CartView = () => (
-    <div className="absolute top-18 right-0 sm:w-96 p-4 rounded-md rounded-tr-none z-20 shadow-lg bg-white md:max-h-[70vh] overflow-y-scroll border-2">
+    <div className={`absolute top-18 right-0 sm:w-96 p-4 rounded-md rounded-tr-none z-20 shadow-lg bg-white md:max-h-[70vh] ${totalPrice > 0 ? 'overflow-y-scroll' : ''} border border-gray-100`}>
       <Cart />
     </div>
   )
