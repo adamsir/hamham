@@ -7,6 +7,7 @@ import PageHero from '../components/PageHero'
 import ProductCard from '../components/ProductCard'
 import type { Product } from './api/products'
 import Cart from '../components/Cart'
+import ProductSearch from '../components/ProductSearch'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -19,10 +20,10 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className='fixed top-0 right-0 border-2 z-20 bg-slate-100'>
-        <Cart />
-      </div>
       <PageHeader />
+      <div className="flex justify-center">
+        <ProductSearch searchContext={data} />
+      </div>
       <PageHero />
 
       {/* <div>
@@ -47,7 +48,9 @@ const Home: NextPage = () => {
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
               {data.map((product: Product) => (
-                <ProductCard {...product} />
+                <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                  <ProductCard {...product} />
+                </div>
               ))}
             </div>
           </div>

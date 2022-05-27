@@ -43,7 +43,7 @@ const updateTotalPrice = (items: Product[], totalPrice: number): number => {
     return acc + (product.price.full * product?.quantity)
   }, 0)
 
-  return sum
+  return Number(Math.round(sum))
 }
 
 const useStore = create<OrderStore>()(persist((set, get): OrderStore => ({

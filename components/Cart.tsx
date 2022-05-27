@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import type { Product } from '../pages/api/products'
 import useStore from '../stores/order'
 import ProductAction from './ProductAction'
+import ProductCardInline from './ProductCardInline'
 
 export default () => {
   const {items, setItems, clearItems, totalPrice } = useStore()
@@ -14,18 +15,17 @@ export default () => {
   }
 
   return (
-    <>
+    <div className="relative">
       {items.map((product: Product) => (
-        <div className="p-4">
-          <div>{product.name}</div>
-          <div>{product.quantity} ks</div>
-          <div><ProductAction {...product} /></div>
-        </div>
+        <ProductCardInline {...product} />
       ))}
-      <div className='mt-4'>
-        <button onClick={() => {clearItems()}}>Vyprázdnit košík</button>
-        total price {totalPrice}
+      <button className="py-4" onClick={clearItems}>Vyprázdnit košík</button>
+      <div className="sticky -bottom-4 left-0 py-8 bg-white">
+        <div className="flex justify-between">
+          <div>Celková cena</div>
+          <div className="font-bold text-right">{totalPrice} Kč</div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
