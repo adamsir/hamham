@@ -17,10 +17,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <PageHeader />
-      <div className="flex justify-center">
-        <ProductSearch searchContext={data} />
-      </div>
+      <PageHeader searchContext={data} />
       <PageHero />
 
       <div className="flex min-h-screen flex-col items-center justify-center py-2">

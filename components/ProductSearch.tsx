@@ -42,9 +42,14 @@ const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
     }
   }
 
+  const onBlur = () => {
+    setShowSuggestions(false)
+    setQuery('')
+  }
+
   const ResultsView = () => {
     return (
-      <div className="absolute top-12 w-full z-10">
+      <div className="absolute top-12 w-full z-30">
         <div className="flex flex-col">
           {suggestions.map((suggestion: OrderItem) => (
             <div key={suggestion.id} className="w-96 z-50">
@@ -57,12 +62,12 @@ const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
   }
 
   const Backdrop = () => (
-    <div onClick={() => setShowSuggestions(false)} className="bg-white backdrop-blur-[128px] bg-opacity-60 fixed w-screen h-screen top-0 left-0 z-40"></div>
+    <div onClick={onBlur} className="bg-white backdrop-blur-[128px] bg-opacity-60 fixed w-screen h-screen top-0 left-0 z-20"></div>
   )
 
   return (
     <>
-      <div className="relative z-50">
+      <div className="relative z-30">
         <div className="w-96">
         <input placeholder="Banány, hrozny, jablko" type="text" name="search" id="mainSearch" 
         onChange={onChange}
