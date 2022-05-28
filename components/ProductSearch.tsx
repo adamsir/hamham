@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { OrderItem } from '../pages/api/products';
 import ProductCardInline from './ProductCardInline';
 
-const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
+const ProductSearch = ({ searchContext }: { searchContext: any[] }) => {
   const [searchData, setSearchData] = useState(searchContext)
   const [query, setQuery] = useState('')
   const [suggestions, setSuggestions] = useState<any[]>([])
@@ -18,7 +18,7 @@ const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
     const value = event.target.value.toLowerCase()
     setQuery(value)
 
-    if (value.length > 0) {
+    if (value.length > 1) {
       const results = searchData.filter((item) => item.name.toLowerCase().indexOf(value) > -1)
       setSuggestions(results)
       setShowSuggestions(true)
@@ -49,10 +49,10 @@ const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
 
   const ResultsView = () => {
     return (
-      <div className="absolute top-12 w-full z-30">
+      <div className={`absolute top-12 w-full max-h-[90vh] overflow-overlay bg-white ${showSuggestions ? 'z-[110]' : 'z-30'}`}>
         <div className="flex flex-col">
           {suggestions.map((suggestion: OrderItem) => (
-            <div key={suggestion.id} className="w-96 z-50">
+            <div key={suggestion.id} className="w-full pr-6">
               <ProductCardInline  {...suggestion} />
             </div>
           ))}
@@ -62,19 +62,19 @@ const ProductSearch = ({ searchContext }: { searchContext: any[]}) => {
   }
 
   const Backdrop = () => (
-    <div onClick={onBlur} className="bg-white backdrop-blur-[128px] bg-opacity-60 fixed w-screen h-screen top-0 left-0 z-20"></div>
+    <div onClick={onBlur} className={`bg-white backdrop-blur-2xl bg-opacity-90 fixed w-full h-screen top-0 left-0 ${showSuggestions ? 'z-[100]' : 'z-20'}`} ></div>
   )
 
   return (
     <>
-      <div className="relative z-30">
+      <div className={`relative ${showSuggestions ? 'z-[110]' : 'z-30'}`}>
         <div className="w-96">
-        <input placeholder="Banány, hrozny, jablko" type="text" name="search" id="mainSearch" 
-        onChange={onChange}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown} 
-        value={query} 
-        className="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+          <input placeholder="Banány, hrozny, jablko" type="text" name="search" id="mainSearch"
+            onChange={onChange}
+            onFocus={onFocus}
+            onKeyDown={onKeyDown}
+            value={query}
+            className="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
         </div>
         {showSuggestions && <ResultsView />}
       </div>

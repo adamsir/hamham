@@ -11,6 +11,11 @@ type OrderStore = {
   clearItems: () => void;
 }
 
+const _round = (num: number): number => {
+  const n = Number((Math.abs(num) * 100).toPrecision(15))
+  return Math.round(n) / 100 * Math.sign(num)
+}
+
 const addItem = (items: OrderItem[], item: OrderItem, quantity: number): OrderItem[] => {
   let orderItems = items.filter((orderItem) => orderItem.id !== item.id)
 
@@ -43,7 +48,7 @@ const updateTotalPrice = (items: OrderItem[], totalPrice: number): number => {
     return acc + (product.price.full * product?.quantity)
   }, 0)
 
-  return Number(Math.round(sum))
+  return _round(sum)
 }
 
 const useStore = create<OrderStore>()(persist((set, get): OrderStore => ({
@@ -58,7 +63,7 @@ const useStore = create<OrderStore>()(persist((set, get): OrderStore => ({
     set((state) => ({
       ...state,
       items: addItem(state.items, item, quantity),
-      totalPrice: state.totalPrice + item.price.full
+      totalPrice: _round(state.totalPrice + item.price.full)
     })),
   updateItemQuantity: (id: number, quantity: number) =>
     set((state) => ({

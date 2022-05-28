@@ -9,7 +9,7 @@ const ProductAction = ({ searchContext }: { searchContext: any[]}) => {
   const [showCart, setShowCart] = useState(false)
 
   const CartView = () => (
-    <div className={`absolute top-18 right-0 sm:w-96 p-4 rounded-md rounded-tr-none z-40 shadow-lg bg-white md:max-h-[70vh] ${totalPrice > 0 ? 'overflow-y-scroll' : ''} border border-gray-100`}>
+    <div className={`absolute top-18 right-0 sm:w-96 p-4 px-6 rounded-md rounded-tr-none z-40 shadow-lg bg-white md:max-h-[70vh] ${totalPrice > 0 ? 'overflow-overlay' : ''} border border-gray-100`}>
       <Cart />
     </div>
   )
@@ -36,7 +36,7 @@ const ProductAction = ({ searchContext }: { searchContext: any[]}) => {
         <div className="relative bg-white">
           <button onClick={toggleCartView} className="inline-flex items-center bg-gray-100 border-0 py-4 px-4 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 z-30">
             <Image src="/icon-bag.svg" className="w-4 h-4" alt="Cart icon" width="16px" height="16px" />
-            <span className="ml-4">{totalPrice} Kč</span>
+            <span className="ml-2 w-20 inline-block text-right">{totalPrice} Kč</span>
           </button>
           {showCart && <CartView />}
         </div>
