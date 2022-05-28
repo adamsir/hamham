@@ -49,10 +49,10 @@ const ProductSearch = ({ searchContext }: { searchContext: any[] }) => {
 
   const ResultsView = () => {
     return (
-      <div className={`absolute top-12 w-full max-h-[90vh] overflow-overlay bg-white ${showSuggestions ? 'z-[110]' : 'z-30'}`}>
+      <div className={`absolute top-12 w-full max-h-[90vh] overflow-overlay bg-white ${showSuggestions ? 'z-[110] drop-shadow-lg' : 'z-30'}`}>
         <div className="flex flex-col">
           {suggestions.map((suggestion: OrderItem) => (
-            <div key={suggestion.id} className="w-full pr-6">
+            <div key={suggestion.id} className="w-full px-6">
               <ProductCardInline  {...suggestion} />
             </div>
           ))}
@@ -62,13 +62,13 @@ const ProductSearch = ({ searchContext }: { searchContext: any[] }) => {
   }
 
   const Backdrop = () => (
-    <div onClick={onBlur} className={`bg-white backdrop-blur-2xl bg-opacity-90 fixed w-full h-screen top-0 left-0 ${showSuggestions ? 'z-[100]' : 'z-20'}`} ></div>
+    <div onClick={onBlur} className={`bg-white fixed w-full h-screen top-24 md:top-0 left-0 ${showSuggestions ? 'z-[100]' : 'z-20'}`} ></div>
   )
 
   return (
     <>
       <div className={`relative ${showSuggestions ? 'z-[110]' : 'z-30'}`}>
-        <div className="w-96">
+        <div className="w-full">
           <input placeholder="Banány, hrozny, jablko" type="text" name="search" id="mainSearch"
             onChange={onChange}
             onFocus={onFocus}
